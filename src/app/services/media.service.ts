@@ -13,6 +13,11 @@ export class MediaService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+
+  getNew() {
+    return this.http.get(this.apiUrl + '/media?limit=10');
+  }
+
   getAllMedia() {
     return this.http.get(this.apiUrl + '/media');
   }
