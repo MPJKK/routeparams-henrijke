@@ -9,7 +9,6 @@ export class ThumbnailPipe implements PipeTransform {
     let koko: string;
     // jaa split-funkitolla tiedsotn nimi (value) osiin,
     const temp = value.split('.');
-    console.log(temp[0]);
     // Tallenna tulos nimellä temp
 
     // swtocj / case lause
@@ -19,7 +18,6 @@ export class ThumbnailPipe implements PipeTransform {
     switch (args) {
       case 'small':
         koko = '160';
-        console.log('käytiin täällä');
         break;
       case 'medium':
         koko = '320';
