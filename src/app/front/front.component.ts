@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MediaService} from '../services/media.service';
 import {ThumbnailPipe} from '../pipes/thumbnail.pipe';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-front',
@@ -10,8 +11,12 @@ import {ThumbnailPipe} from '../pipes/thumbnail.pipe';
 export class FrontComponent implements OnInit {
   mediaArray: any;
 
-  constructor(public mediaService: MediaService, public thumbnail: ThumbnailPipe) { }
+  constructor(public mediaService: MediaService, public thumbnail: ThumbnailPipe, public router: Router) { }
 
+  /*
+  singlePage (param: file_id) {
+  this.router.navigate(['single',file_id]);
+  }*/
 
   ngOnInit() {
    this.mediaService.getNew().subscribe(data => {

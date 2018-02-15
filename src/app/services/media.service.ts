@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Login} from '../models/login';
+import {Media} from '../models/media';
 
 @Injectable()
 export class MediaService {
 
   apiUrl = 'http://media.mw.metropolia.fi/wbma';
   mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
-  isLogged= false;
+  isLogged = false;
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -16,6 +17,15 @@ export class MediaService {
 
   getNew() {
     return this.http.get(this.apiUrl + '/media?limit=10');
+  }
+  getSingle(id) {
+    return this.http.get<Media>(this.apiUrl + '/media/' + id);
+  }
+  getUser(user_id, token) {
+    const options = {
+      headers: new HttpHeaders().set('x-access-token', token),
+    };
+    return this.http.get(this.apiUrl + '/users/' + user_id, options);
   }
 
   getAllMedia() {

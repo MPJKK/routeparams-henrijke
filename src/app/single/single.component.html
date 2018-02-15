@@ -1,0 +1,23 @@
+
+<div [ngSwitch]="fileSuper.media_type">
+  <h1>{{fileSuper.title}}</h1>
+  <div *ngSwitchCase="'image'">
+
+    <img [src]="mediaService.mediaUrl + fileSuper.filename">
+  </div>
+  <div *ngSwitchCase="'video'">
+    <h1>Video</h1>
+    <video width="320" height="240 controls">
+      <source src = "fileType.src" type = "fileType.type" >
+    </video>
+  </div>
+  <div *ngSwitchCase="'audio'">
+    <h1>audio</h1>
+    <audio controls>
+      <source src="fileType.src" type = "fileType.type">
+    </audio>
+  </div>
+
+  <h2>Username: {{userName}}</h2>
+  <h3>Description: {{fileSuper.description}}</h3>
+</div>

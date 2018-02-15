@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ThumbnailPipe } from './pipes/thumbnail.pipe';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SingleComponent } from './single/single.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LogoutComponent,
     UploadComponent,
     ThumbnailPipe,
+    SingleComponent,
   ],
   imports: [
     BrowserModule,
